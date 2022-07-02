@@ -17,18 +17,18 @@ public class EmployeeController {
     @GetMapping("/emps")
     public String employess(Model model) {
         model.addAttribute("employees", employeeService.getAllEmps());
-        return "home";
+        return "employees/home";
     }
 
     @GetMapping("/add-employee")
     public String addEmployee(Model model) {
         model.addAttribute("employee", new Employee());
-        return "add-employee";
+        return "employees/add-employee";
     }
 
     @PostMapping("/save-employee")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) throws Exception {
-        employeeService.addEmployee(employee);
+        employeeService.commit(employee);
         return "redirect:/emps";
 
     }
@@ -36,7 +36,7 @@ public class EmployeeController {
     @GetMapping("/get-employee")
     public String getEmployee(@RequestParam("employeeId") int id, Model model) {
         model.addAttribute("employee", employeeService.getEmployee(id));
-        return "add-employee";
+        return "employees/add-employee";
     }
     @GetMapping("/delete-employee")
     public String deleteEmployee(@RequestParam("employeeId") int id) {
