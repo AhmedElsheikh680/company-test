@@ -5,6 +5,7 @@ import com.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -28,6 +29,7 @@ public class EmployeeController {
 
     @PostMapping("/save-employee")
     public String saveEmployee(@ModelAttribute("employee") Employee employee) throws Exception {
+
         employeeService.commit(employee);
         return "redirect:/emps";
 
