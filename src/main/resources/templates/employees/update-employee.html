@@ -7,10 +7,10 @@
     <title>Add Employee</title>
 </head>
 <body>
-<h1>Add Employee</h1>
+<h1>Update Employee</h1>
 <div class="container form">
-    <form th:action="@{/save-employee}" th:object="${employee}" method="post" >
-        <input th:field="*{id}" type="hidden" />
+    <form th:action="@{/update-employee/{id}(id=${employee.id})}" th:object="${employee}" method="post" >
+<!--        <input th:field="*{id}" type="hidden" />-->
         <div class="input-group mb-3 ">
             <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
@@ -30,7 +30,7 @@
             <input th:field="*{address}" type="text" class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
-        <button type="submit" class="btn btn-success">Add</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </form>
 
 </div>
