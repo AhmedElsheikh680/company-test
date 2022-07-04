@@ -5,7 +5,10 @@ import com.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("")
@@ -32,14 +35,20 @@ public class EmployeeController {
     }
 
     @PostMapping("/save-employee")
-    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+    public String saveEmployee(@ModelAttribute("employee") @Valid  Employee employee, BindingResult rs) {
+        if(rs.hasErrors()){
+            return "employees/add-employee";
+        }
 
         employeeService.addEmployee(employee);
         return "redirect:/employees";
 
     }
     @PostMapping("/update-employee/{id}")
-    public String updateEmployee(@PathVariable("id") int id, @ModelAttribute("employee") Employee employee) {
+    public String updateEmployee(@PathVariable("id") int id, @ModelAttribute("employee")@Valid Employee employee, BindingResult rs) {
+        if(rs.hasErrors()) {
+            return "employees/update-employee";
+        }
         employee.setId(id);
         employeeService.updateEmployee(employee);
         return "redirect:/employees";
