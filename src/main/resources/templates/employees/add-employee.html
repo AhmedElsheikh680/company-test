@@ -25,7 +25,7 @@
             <input th:field="*{name}" type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
 
         </div>
-        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger error">
             Invalid Name</div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -33,7 +33,7 @@
             </div>
             <input th:field="*{code}" type="text" class="form-control" placeholder="Code" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <div th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="error">
+        <div th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="alert alert-danger error">
             Invalid Code</div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -41,7 +41,7 @@
             </div>
             <input th:field="*{address}" type="text" class="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error">
+        <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="alert alert-danger error">
             Invalid Address</div>
 
         <button type="submit" class="btn btn-success">Add</button>
