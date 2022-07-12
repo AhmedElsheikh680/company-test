@@ -43,6 +43,31 @@
         </div>
         <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="alert alert-danger error">
             Invalid Address</div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+            </div>
+            <input th:field="*{birthDate}" type="date" class="form-control" placeholder="Birth Date" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" class="alert alert-danger error">
+            Invalid Birth Date</div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+            </div>
+            <input th:field="*{mobile}" type="text" class="form-control" placeholder="Mobile" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}" class="alert alert-danger error">
+            Invalid Mobile</div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+            </div>
+            <input th:field="*{salary}" type="text" class="form-control" placeholder="Salary" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}" class="alert alert-danger error">
+            Invalid Salary</div>
+
 
         <button type="submit" class="btn btn-success">Add</button>
     </form>

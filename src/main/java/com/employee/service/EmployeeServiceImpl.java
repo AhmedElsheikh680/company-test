@@ -28,6 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         Employee alreadyExist = employeeRepo.findByCode(employee.getCode());
         if (ObjectUtils.isEmpty(alreadyExist)) {
             return employeeRepo.save(employee);
+
         } else {
             throw new BadRequestException(DUPLICATED_CODE + employee.getCode());
         }
